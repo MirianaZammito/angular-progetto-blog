@@ -1,0 +1,8 @@
+<app-profile-header (postAdded)="onAddPost($event)"></app-profile-header>
+
+<div class="profile-body">
+  <div class="main-content">
+    <app-post-list [isProfilePage]="true" [currentUsername]="currentUsername" [posts]="posts"></app-post-list>
+    
+  </div>
+</div>

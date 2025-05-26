@@ -1,0 +1,26 @@
+<!-- Lista dei post della dashboard -->
+<div class="dashboard-post-list">
+  <!-- Card per ogni post -->
+  <mat-card *ngFor="let post of posts" class="dashboard-post-card">
+    <mat-card-header>
+      <!-- Avatar autore: mostra immagine se presente, altrimenti iniziale dell'utente -->
+      <div class="dashboard-post-image">
+        <img *ngIf="post.urlImage; else defaultAvatar" [src]="post.urlImage" alt="Immagine post" />
+        <ng-template #defaultAvatar>
+          <div class="default-avatar">
+            {{ post.authorUsername ? post.authorUsername.charAt(0).toUpperCase() : '?' }}
+          </div>
+        </ng-template>
+      </div>
+      <!-- Info post: titolo e autore -->
+      <div class="dashboard-post-info">
+        <mat-card-title>{{ post.title }}</mat-card-title>
+        <mat-card-subtitle>{{ post.authorUsername }}</mat-card-subtitle>
+      </div>
+    </mat-card-header>
+    <!-- Contenuto del post -->
+    <mat-card-content>
+      <p>{{ post.content }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

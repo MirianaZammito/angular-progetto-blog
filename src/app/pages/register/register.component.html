@@ -1,0 +1,60 @@
+<div class="form-container">
+  <h2>Registrazione Utente</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <!-- Username -->
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" />
+    </mat-form-field>
+    <div *ngIf="username?.invalid && username?.touched" class="errore">
+      L'username è obbligatorio
+    </div>
+
+    <!-- Email -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" />
+    </mat-form-field>
+    <div *ngIf="email?.invalid && email?.touched" class="errore">
+      Inserisci un'email valida
+    </div>
+
+    <!-- Password -->
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+    <div *ngIf="password?.invalid && password?.touched" class="errore">
+      <ng-container *ngIf="password?.errors?.['required']">
+        La password è obbligatoria
+      </ng-container>
+      <ng-container *ngIf="password?.errors?.['minlength']">
+        Minimo 6 caratteri richiesti
+      </ng-container>
+    </div>
+
+    <!-- Conferma Password -->
+    <mat-form-field appearance="fill">
+      <mat-label>Conferma Password</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" />
+    </mat-form-field>
+    <div *ngIf="confirmPassword?.touched && registerForm.errors?.['passwordMismatch']" class="errore">
+      Le password non coincidono
+    </div>
+
+    <!-- Pulsante -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">
+      Registrati
+    </button>
+
+    <!-- Link alla login -->
+    <p>Hai già un account?
+      <a routerLink="/login">Accedi qui</a>
+    </p>
+  </form>
+
+  <p *ngIf="submitted">
+    Registrazione completata per {{ registerForm.value.username || 'Utente' }}
+  </p>
+</div>

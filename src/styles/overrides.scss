@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+
+/* Navbar */
+.navbar {
+  @include mat.toolbar-overrides((
+    container-background-color: #ff735c, 
+    container-text-color: #ffffff /* Colore del testo bianco */
+  ));
+}
+
+/* Footer */
+.footer {
+  @include mat.toolbar-overrides((
+    container-background-color: #29454e, /* Arancio pastello */
+    container-text-color: #ffffff /* Colore del testo bianco */
+  ));
+}
+
+// .form-container {
+//   @include form-container-overrides((
+//     container-background-color: #29454e, /* Arancio pastello */
+//     container-text-color: #ffffff /* Colore del testo bianco */
+//   ));
+// }
+
+

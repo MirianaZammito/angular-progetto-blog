@@ -1,0 +1,48 @@
+<mat-toolbar class="navbar">
+  <!-- Logo -->
+  <span routerLink="/homepage" class="logo">MyApp</span>
+
+  <!-- Spazio per centrare il contenuto -->
+  <span  class="spacer"></span>
+
+  <!-- Menu a tendina con nuovi stili -->
+  <mat-menu #appMenu="matMenu">
+    
+    <!-- Se l'utente è loggato, mostra i pulsanti relativi -->
+    <ng-container *ngIf="isAuthenticated; else loggedOutMenu">
+      <button mat-menu-item routerLink="/homepage">
+        <mat-icon>home</mat-icon> Home
+      </button>
+      <button mat-menu-item routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </button>
+            <button mat-menu-item routerLink="/profile">
+        <mat-icon>person</mat-icon> Profile
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </ng-container>
+
+    <!-- Se l'utente non è loggato, mostra login e registrazione -->
+    <ng-template #loggedOutMenu>
+      <button mat-menu-item routerLink="/login">
+        <mat-icon>login</mat-icon> Login
+      </button>
+      <button mat-menu-item routerLink="/register">
+        <mat-icon>person_add</mat-icon> Register
+      </button>
+    </ng-template>
+
+  </mat-menu>
+
+  <!-- Pulsante per il menu a tendina -->
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Avatar utente, visibile solo se l'utente è loggato -->
+  <div class="user-menu" *ngIf="isAuthenticated">
+    <img class="navbar-avatar" [src]="userLogged?.avatarUrl || defaultAvatar" alt="Avatar utente" />
+  </div>
+</mat-toolbar>

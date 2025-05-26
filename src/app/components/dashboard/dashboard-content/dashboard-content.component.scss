@@ -1,0 +1,122 @@
+.stats-container {
+  display: flex;
+  justify-content: center; /* Centra le card orizzontalmente */
+  margin-top: 20px;
+  flex-wrap: wrap; /* Permette alle card di andare a capo se necessario */
+  gap: 10px; /* Spazio tra le card, ridotto per avvicinarle */
+}
+
+.stat-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 200px; /* Ridotto per farle più vicine */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.stat-card p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #d81b60;
+}
+
+.stat-card .stat-icon {
+  font-size: 40px;
+  color: #fbc02d;; /* Colore per le icone */
+  margin-bottom: 10px;
+}
+
+.dashboard-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0;
+  margin-bottom: 64px; // Distanza extra dal footer
+}
+
+.dashboard-post-card {
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
+  padding: 0 0 12px 0;
+  background: #fff;
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+  }
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px 0 24px;
+  background: transparent;
+}
+
+.dashboard-post-image {
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-post-image img,
+.default-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f5f5f5;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default-avatar {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #888;
+  background: #e0e0e0;
+  text-transform: uppercase;
+}
+
+.dashboard-post-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+mat-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+mat-card-subtitle {
+  font-size: 0.98rem;
+  color: #888;
+  margin-bottom: 0;
+  line-height: 1.1;
+  font-style: italic;
+}
+
+mat-card-content p {
+  padding: 0 24px 12px 24px;
+  font-size: 1.08rem;
+  color: #333333;
+  text-align: left; 
+}
+

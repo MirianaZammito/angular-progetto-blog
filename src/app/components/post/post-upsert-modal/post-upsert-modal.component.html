@@ -1,0 +1,32 @@
+<h2 mat-dialog-title class="modal-title">
+  {{ isEditMode ? 'Modifica Post' : 'Aggiungi Post' }}
+</h2>
+<form [formGroup]="postForm" (ngSubmit)="onSave()" class="modal-form">
+  <!-- Campo titolo -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Titolo</mat-label>
+    <input matInput formControlName="title" required autocomplete="off">
+    <mat-error *ngIf="postForm.get('title')?.invalid">Il titolo è obbligatorio</mat-error>
+  </mat-form-field>
+
+  <!-- Campo contenuto -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Contenuto</mat-label>
+    <textarea matInput formControlName="content" rows="4" required autocomplete="off"></textarea>
+    <mat-error *ngIf="postForm.get('content')?.invalid">Il contenuto è obbligatorio</mat-error>
+  </mat-form-field>
+
+  <!-- Campo URL immagine (opzionale) -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>URL Immagine</mat-label>
+    <input matInput formControlName="urlImage" autocomplete="off">
+  </mat-form-field>
+
+  <!-- Azioni: Annulla e Salva/Aggiungi -->
+  <div class="actions">
+    <button mat-stroked-button color="basic" type="button" (click)="onCancel()">Annulla</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="postForm.invalid">
+      {{ isEditMode ? 'Salva' : 'Aggiungi' }}
+    </button>
+  </div>
+</form>

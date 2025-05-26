@@ -1,0 +1,25 @@
+.dashboard-header {
+  color: #333333; /* Colore del testo scuro per contrasto */
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.dashboard-header .header-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #29454e;
+  letter-spacing: 1px;
+}
+
+.dashboard-header .divider {
+  height: 2px;
+  background: #ff735c; 
+  margin-top: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dashboard-header img {
+  width: 500px;
+  margin-top: 64px;
+}

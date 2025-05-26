@@ -1,0 +1,34 @@
+<div class="post-list">
+  <mat-card *ngFor="let post of posts" class="post-card">
+    <div class="post-content-wrapper">
+      <div class="post-image" *ngIf="post.urlImage">
+        <img mat-card-image [src]="post.urlImage" alt="Immagine post" />
+      </div>
+
+      <div class="post-text">
+        <mat-card-header>
+          <mat-card-title>{{ post.title }}</mat-card-title>
+          <mat-card-subtitle>{{ post.authorUsername }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{ post.content }}</p>
+        </mat-card-content>
+      </div>
+    </div>
+
+    <mat-card-actions>
+      <!-- Bottone modifica tramite componente -->
+      <app-post-edit-button
+        [post]="post"
+        (postEdited)="onPostEdited($event)">
+      </app-post-edit-button>
+
+      <!-- Bottone elimina tramite componente -->
+      <app-post-delete-button
+        [postId]="post.id"
+        (postDeleted)="onDelete($event)">
+      </app-post-delete-button>
+    </mat-card-actions>
+  </mat-card>
+</div>

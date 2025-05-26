@@ -1,0 +1,11 @@
+<app-dashboard-header></app-dashboard-header>
+
+<div class="dashboard-body">
+  <div class="main-content">
+
+    <app-dashboard-content *ngIf="isAuthenticated" [posts]="posts"></app-dashboard-content>
+
+  </div>
+</div>
+
+

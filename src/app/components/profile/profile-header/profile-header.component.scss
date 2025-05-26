@@ -1,0 +1,46 @@
+.profile-header {
+  display: flex;
+  flex-direction: column; // disposizione verticale
+  align-items: center;     // centra orizzontalmente
+  text-align: center;      // centra il testo
+  gap: 16px;
+  padding: 32px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  .avatar-label {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.2s;
+  }
+
+  .avatar-label:hover .avatar {
+    box-shadow: 0 0 0 3px #1976d233;
+  }
+
+  .avatar-input {
+    display: none;
+  }
+
+  .welcome-text {
+    h2 {
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+    }
+  }
+}
+

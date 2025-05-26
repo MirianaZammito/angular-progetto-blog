@@ -1,0 +1,52 @@
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra per dare profondità */
+}
+
+/* Spazio per centrare il contenuto */
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* Avatar utente */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Cambia colore del testo dei menu item */
+button[mat-menu-item] {
+  color: #29454e; // Colore del testo
+}
+
+/* Cambia colore delle icone dentro i menu item */
+button[mat-menu-item] mat-icon {
+  color:  #29454e; // Colore delle icone
+}
+
+.navbar-avatar-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.navbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: box-shadow 0.2s;
+}
+.navbar-avatar-label:hover .navbar-avatar {
+  box-shadow: 0 0 0 3px #1976d233;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+

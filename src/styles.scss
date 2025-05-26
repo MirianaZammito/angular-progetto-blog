@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+@use './styles/overrides';
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),ç
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+  color: #29454e;
+}
+
+.navbar,
+.footer {
+  padding: 0 16px;
+  height: 64px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 100px auto 200px auto; // top, right/left, bottom
+  padding: 24px 32px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #29454e;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  mat-form-field {
+    width: 100%;
+    
+  }
+
+  button[type="submit"] {
+    align-self: center;
+    width: 100%;
+    max-width: 160px;
+  }
+
+  p {
+    color: #29454e;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  a {
+    color: #ff735c; 
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
