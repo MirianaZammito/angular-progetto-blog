@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -9,45 +8,35 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
+// Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
-
-
+// Components
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DashboardHeaderComponent } from './components/dashboard/dashboard-header/dashboard-header.component';
 import { DashboardContentComponent } from './components/dashboard/dashboard-content/dashboard-content.component';
-
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomepageComponent } from './pages/homepage/homepage/homepage.component';
-
-import { CartService } from './services/cart.service';
 import { HeroSectionComponent } from './components/homepage/hero-section/hero-section.component';
-
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileHeaderComponent } from './components/profile/profile-header/profile-header.component';
-
 import { PostListComponent } from './components/post/post-list/post-list.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { PostEditButtonComponent } from './components/post/post-edit-button/post-edit-button.component';
 import { PostDeleteButtonComponent } from './components/post/post-delete-button/post-delete-button.component';
 import { PostUpsertModalComponent } from './components/post/post-upsert-modal/post-upsert-modal.component';
 import { PostAddButtonComponent } from './components/post/post-add-button/post-add-button.component';
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -60,8 +49,6 @@ import { PostAddButtonComponent } from './components/post/post-add-button/post-a
     LoginComponent,
     RegisterComponent,
     HomepageComponent,
-
-
     HeroSectionComponent,
     ProfileComponent,
     ProfileHeaderComponent,
@@ -70,9 +57,6 @@ import { PostAddButtonComponent } from './components/post/post-add-button/post-a
     PostDeleteButtonComponent,
     PostUpsertModalComponent,
     PostAddButtonComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -83,7 +67,7 @@ import { PostAddButtonComponent } from './components/post/post-add-button/post-a
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
-    MatIconModule, 
+    MatIconModule,
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
@@ -92,7 +76,6 @@ import { PostAddButtonComponent } from './components/post/post-add-button/post-a
     FormsModule,
     CommonModule,
   ],
-  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
