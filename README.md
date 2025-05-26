@@ -1,59 +1,53 @@
-# TestFinaleAngular
+## test_finale_angular  
+test_finale_angular è un'applicazione Angular che utilizza json-server per simulare un backend RESTful. 
+L'applicazione consente di visualizzare, aggiungere, modificare ed eliminare post da una lista, con un'interfaccia utente semplice e intuitiva.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+Solo gli utenti autenticati possono visualizzare, aggiungere, modificare ed eliminare i post.
 
-## Development server
+## Funzionalità principali
+- Visualizzazione di una lista di post
+- Aggiunta di nuovi post
+- Modifica di post esistenti            
+- Eliminazione di post
+- Visualizzazione dei propri post in una dashboard personale
+- Visualizzazione dei post di  tutti gli utenti in una dashboard pubblica
 
-To start a local development server, run:
+## Tecnologie utilizzate
+- Angular per lo sviluppo del frontend
+- RxJS per la gestione della programmazione reattiva e degli stream di dati
+- HttpClientModule di Angular per le chiamate REST
+- json-server per simulare un backend e gestire i dati tramite file JSON    
 
-```bash
+## Come avviare l'applicazione
+Assicurati di avere Node.js installato.
+
+Clona il repository
+
+```
+git clone <repo-url>
+```
+cd test_finale_angular
+Installa le dipendenze
+
+```
+npm install
+```
+
+Installa json-server
+
+```
+npm install -g json-server
+```
+
+Avvia il server di sviluppo In una finestra del terminale, esegui:
+
+```
+json-server --watch db.json --port 3000
+```
+
+In un'altra finestra del terminale, esegui:
+
+```
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Apri l'app nel browser Visita ```http://localhost:4200``` per vedere l'app in azione.
