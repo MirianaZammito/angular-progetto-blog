@@ -7,8 +7,13 @@
       <mat-label>Username</mat-label>
       <input matInput type="text" formControlName="username" />
     </mat-form-field>
-    <div *ngIf="username?.invalid && username?.touched" class="errore">
-      L'username è obbligatorio
+    <div *ngIf="username?.touched && username?.invalid" class="errore">
+      <ng-container *ngIf="username?.errors?.['required']">
+        L'username è obbligatorio
+      </ng-container>
+      <ng-container *ngIf="username?.errors?.['usernameTaken']">
+        Username già in uso, scegline un altro
+      </ng-container>
     </div>
 
     <!-- Email -->
@@ -16,8 +21,16 @@
       <mat-label>Email</mat-label>
       <input matInput type="email" formControlName="email" />
     </mat-form-field>
-    <div *ngIf="email?.invalid && email?.touched" class="errore">
-      Inserisci un'email valida
+    <div *ngIf="email?.touched && email?.invalid" class="errore">
+      <ng-container *ngIf="email?.errors?.['required']">
+        L'email è obbligatoria
+      </ng-container>
+      <ng-container *ngIf="email?.errors?.['email']">
+        Inserisci un'email valida
+      </ng-container>
+      <ng-container *ngIf="email?.errors?.['emailTaken']">
+        Questa email è già in uso
+      </ng-container>
     </div>
 
     <!-- Password -->
@@ -25,7 +38,7 @@
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password" />
     </mat-form-field>
-    <div *ngIf="password?.invalid && password?.touched" class="errore">
+    <div *ngIf="password?.touched && password?.invalid" class="errore">
       <ng-container *ngIf="password?.errors?.['required']">
         La password è obbligatoria
       </ng-container>

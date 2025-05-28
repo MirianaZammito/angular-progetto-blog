@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { RegisterRequest } from '../../models/register/register-request';
+import { usernameUniqueValidator, passwordMatchValidator, emailUniqueValidator } from '../../shared/validators/custom-validators';
 
 @Component({
   selector: 'app-register',
@@ -19,17 +20,27 @@ import { RegisterRequest } from '../../models/register/register-request';
 export class RegisterComponent {
   submitted = false;
 
-  registerForm = new FormGroup(
-    {
-      username: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      confirmPassword: new FormControl('', Validators.required)
-    },
-    { validators: this.passwordMatchValidator }
-  );
+  registerForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+    this.registerForm = new FormGroup(
+  {
+    username: new FormControl(
+      '',
+      Validators.required,
+      usernameUniqueValidator(this.userService)
+    ),
+    email: new FormControl(
+      '',
+      [Validators.required, Validators.email],
+      emailUniqueValidator(this.userService)
+    ),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('', Validators.required)
+  },
+  { validators: passwordMatchValidator }
+);
+  }
 
   get username() {
     return this.registerForm.get('username');
@@ -53,7 +64,7 @@ export class RegisterComponent {
 
       const { username, email, password } = this.registerForm.value as RegisterRequest;
 
-      const newUser: RegisterRequest = { id : crypto.randomUUID(), username, email, password };
+      const newUser: RegisterRequest = { id: crypto.randomUUID(), username, email, password };
 
       this.userService.register(newUser).subscribe({
         next: () => this.router.navigate(['/login']),
@@ -63,11 +74,5 @@ export class RegisterComponent {
         }
       });
     }
-  }
-
-  passwordMatchValidator(group: AbstractControl): ValidationErrors | null {
-    const password = group.get('password')?.value;
-    const confirm = group.get('confirmPassword')?.value;
-    return password === confirm ? null : { passwordMismatch: true };
   }
 }

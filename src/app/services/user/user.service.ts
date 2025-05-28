@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 
 import { LoginRequest } from '../../models/login/login-request';
 import { RegisterRequest } from '../../models/register/register-request';
@@ -36,4 +36,22 @@ setUser(user: User): Observable<User> {
 updateAvatar(userId: string, avatarUrl: string): Observable<User> {
   return this.http.patch<User>(`${environment.apiUrl}/users/${userId}`, { avatarUrl });
 }
+
+checkUsername(username: string): Observable<boolean> {
+  return this.http.get<User[]>(`${environment.apiUrl}/users?username=${username}`)
+    .pipe(
+      map(users => users.length > 0), // true se almeno 1 utente con username
+      catchError(() => of(false)) // in caso di errore, consideriamo che username non esiste
+    );
 }
+
+checkEmail(email: string): Observable<boolean> {
+  return this.http.get<User[]>(`${environment.apiUrl}/users?email=${email}`)
+    .pipe(
+      map(email => email.length > 0), // true se almeno 1 utente con email
+      catchError(() => of(false)) // in caso di errore, consideriamo che email non esiste
+    );
+}
+}
+
+

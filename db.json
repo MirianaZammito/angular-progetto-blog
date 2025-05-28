@@ -19,6 +19,18 @@
       "username": "dada",
       "email": "dada@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "ec30fbdb-0aae-4253-ace9-0f113dc7bfe8",
+      "username": "awa",
+      "email": "asd@asd.it",
+      "password": "123456"
+    },
+    {
+      "id": "8fd20211-b5f1-4dc2-946a-4d8966e15143",
+      "username": "awa",
+      "email": "asd@gmail.it",
+      "password": "123456"
     }
   ],
   "posts": [
