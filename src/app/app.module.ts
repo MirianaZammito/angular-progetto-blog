@@ -37,6 +37,7 @@ import { PostEditButtonComponent } from './components/post/post-edit-button/post
 import { PostDeleteButtonComponent } from './components/post/post-delete-button/post-delete-button.component';
 import { PostUpsertModalComponent } from './components/post/post-upsert-modal/post-upsert-modal.component';
 import { PostAddButtonComponent } from './components/post/post-add-button/post-add-button.component';
+import { NotFoundComponent } from './pages/not-found/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { PostAddButtonComponent } from './components/post/post-add-button/post-a
     PostDeleteButtonComponent,
     PostUpsertModalComponent,
     PostAddButtonComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
