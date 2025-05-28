@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 
-import { LoginRequest } from '../../models/login/login-request';
 import { RegisterRequest } from '../../models/register/register-request';
 import { User } from '../../models/user';
 import { environment } from '../../environment/environment';
-import { LoginResponse } from '../../models/login/login-response';
 
 
 @Injectable({
